@@ -1,0 +1,44 @@
+[
+  {
+      "id": 100,
+      "name": "Free People Ease Loafer",
+      "description": "Spanish Black Suede Slip-Ons, Subtle Stacked Heel, Square Toe, Padded Footbed, Tends to Run Small Suede, Made in Spain, This style runs small, we recommend sizing up",
+      "keywords": "loafer free people slip-ons",
+      "stores": [
+          {
+              "name": "Roolee",
+              "link": "https://www.roolee.com/footwear/free-people-at-ease-loafer-in-black",
+              "price": "$98"
+          },
+          {
+              "name": "Clad and Cloth",
+              "link": "https://cladandcloth.com/collections/shoes/products/at-ease-loafer-in-black",
+              "price": "$88"
+          }
+      ],
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1200/4636/products/At_Ease_Loafer_1_1024x1024.jpg?v=1490749760"
+  },
+  {
+    "id": 100,
+    "name": "Free People Ease Loafer",
+    "description": "Spanish Black Suede Slip-Ons, Subtle Stacked Heel, Square Toe, Padded Footbed, Tends to Run Small Suede, Made in Spain, This style runs small, we recommend sizing up",
+    "keywords": "loafer free people slip-ons",
+    "stores": [
+        {
+            "name": "Roolee",
+            "link": "https://www.roolee.com/footwear/free-people-at-ease-loafer-in-black",
+            "price": "$98"
+        },
+        {
+            "name": "Clad and Cloth",
+            "link": "https://cladandcloth.com/collections/shoes/products/at-ease-loafer-in-black",
+            "price": "$88"
+        },{
+          "name": "Piper and Scoot",
+          "link": "https://cladandcloth.com/collections/shoes/products/at-ease-loafer-in-black",
+          "price": "$100"
+      }
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/1200/4636/products/At_Ease_Loafer_1_1024x1024.jpg?v=1490749760"
+}
+]

@@ -1,0 +1,7 @@
+{
+  "name": "Compare Boutiques",
+  "short_name": "CB",
+  "description": "Compare Boutiques",
+  "start_url": "/",
+  "display": "standalone"
+}

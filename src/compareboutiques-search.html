@@ -1,0 +1,114 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-search/paper-search-panel.html">
+<link rel="import" href="compareboutiques-list.html">
+
+<dom-module id="compareboutiques-search">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <paper-search-panel 
+        items="[[items]]"
+        filters="[[filters]]"
+        search="{{search}}"
+        icon="search"
+        has-more="[[hasMore]]"
+        loading="[[loading]]"
+        count="{{count}}"
+        on-change-request-params="loadData">
+
+        <div>
+            Your job: Show your [[count]] results for "[[search]]"
+        </div>
+
+        <compareboutiques-list
+            name="list"
+            items="[[items]]">
+        </compareboutiques-list>
+
+    </paper-search-panel>
+   
+
+   
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class CompareboutiquesSearch extends Polymer.Element {
+      static get is() { return 'compareboutiques-search'; }
+      static get properties() {
+        return {
+          search: {
+            type: String,
+            value: '',
+          },
+          count: {
+              type: Number,
+              value: 0
+          },
+          hasMore: {
+              type: Boolean,
+              value: true
+          },
+          loading: {
+              type: Boolean,
+              value: false
+          },
+          items: {
+            type: Array,
+            value: ["123", "456"]
+          },
+          selectedFilters: {
+              type: Object,
+              value: {}
+          },
+          filters: {
+              type: Array,
+              value: [
+				{
+					id: "age",
+					name: "Age",
+					values: [
+						{
+							id: "child",
+							name: "0-12",
+							count: 29
+						},
+						{
+							id: "teenager",
+							name: "13-19",
+							count: 8
+						},
+						{
+							id: "adult",
+							name: "20+",
+							count: 63
+						}
+					]
+				}
+			]
+          }
+        };
+      }
+
+      loadData() {
+            // Simulate a 100ms data load
+            this.loading = true;
+            setTimeout(function() {
+                this.loading = false;
+            }.bind(this), 1000);
+        }
+
+    }
+
+    
+
+    window.customElements.define(CompareboutiquesSearch.is, CompareboutiquesSearch);
+  </script>
+</dom-module>

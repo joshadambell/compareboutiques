@@ -1,0 +1,97 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/app-layout/app-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="compareboutiques-search.html">
+
+<dom-module id="compareboutiques-app">
+  <template>
+    <style>
+      :host {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+
+      app-header {
+        background-color: rgba(255, 255, 255, 0.95);
+        --app-header-shadow: {
+          box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.2);
+          height: 10px;
+          bottom: -10px;
+        };
+      }
+
+      app-header:not([shadow]) {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .spacer {
+        @apply --layout;
+        @apply --layout-flex-auto;
+        @apply --layout-center-center;
+      }
+
+      #mainToolbar {
+        height: 110px;
+      }
+    </style>
+
+  <app-location route="{{route}}" use-hash-as-path></app-location>
+
+<iron-media-query query="max-width: 400px" query-matches="{{smallScreen}}"></iron-media-query>
+
+<app-drawer-layout drawer-width="288px" force-narrow>
+
+    <app-header-layout id="headerLayout">
+     
+      <!-- main header -->
+      <app-header slot="header" effects="waterfall" fixed="[[smallScreen]]" condenses="[[!smallScreen]]" reveals="[[!smallScreen]]">
+        <app-toolbar id="mainToolbar">
+          <div class="spacer">
+            <div>Compare Boutiques</div>
+          </div>
+        </app-toolbar>
+      </app-header>
+
+      <compareboutiques-search items="[[items]]"></compareboutiques-search>
+    
+    </app-header-layout>
+
+  </app-drawer-layout>
+
+ 
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class CompareboutiquesApp extends Polymer.Element {
+      static get is() { return 'compareboutiques-app'; }
+      static get properties() {
+        return {
+          smallScreen: {
+            type: Boolean,
+            value: false
+          },
+          items: {
+            type: Array
+          },
+        };
+      }
+
+      _shouldShowTabs(onDetailPage, smallScreen) {
+        return !onDetailPage && !smallScreen;
+      }
+    }
+
+    window.customElements.define(CompareboutiquesApp.is, CompareboutiquesApp);
+  </script>
+</dom-module>
